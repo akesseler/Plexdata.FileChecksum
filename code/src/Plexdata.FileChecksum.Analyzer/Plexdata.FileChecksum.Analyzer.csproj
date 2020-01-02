@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>plexdata.de</Authors>
+    <Company>plexdata.de</Company>
+    <Description>This .NET Standard library allows to verify or to create checksums with multiple algorithms.</Description>
+    <Copyright>Copyright © 2020 - plexdata.de</Copyright>
+    <Product>Plexdata.FileChecksum</Product>
+    <PackageId>Plexdata.FileChecksum</PackageId>
+    <RootNamespace>Plexdata.FileChecksum</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+</Project>
