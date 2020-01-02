@@ -10,10 +10,19 @@
     <PackageId>Plexdata.FileChecksum</PackageId>
     <RootNamespace>Plexdata.FileChecksum</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/akesseler/Plexdata.FileChecksum</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/akesseler/Plexdata.FileChecksum/blob/master/icon.png?raw=true</PackageIconUrl>
+    <PackageReleaseNotes>See project history under https://github.com/akesseler/Plexdata.FileChecksum/blob/master/code/src/HISTORY.md</PackageReleaseNotes>
+    <PackageTags>file checksum analyze verify create MD5 SHA1 SHA256</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
+  </ItemGroup>
 
 </Project>
