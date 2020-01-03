@@ -50,16 +50,16 @@ namespace Plexdata.FileChecksum.Cli.Models
         [SwitchParameter(SolidLabel = "sparse", BriefLabel = "s")]
         public Boolean IsSparse{ get; set; }
 
-        [HelpSummary("Comma separated list of checksum methods. Allowed is `md5`, `sha1`, `sha256`, `all` or any combination. But be aware, only the first applied method is used in verify mode!")]
+        [HelpSummary("Comma separated list of checksum methods. Allowed are `md5`, `sha1`, `sha256`, `all` or any combination. But be aware, only the first applied method is used in verify mode.")]
         [OptionParameter(SolidLabel = "methods", BriefLabel = "m", Delimiter = ",")]
         [CustomConverter(typeof(MethodsConverter))]
         public Method[] Methods { get; set; }
 
-        [HelpSummary("Single hash value to be verified. But note, this argument is only allowed along with verify mode.")]
+        [HelpSummary("Single hash value to be verified. But note, this argument is only allowed along with checksum verification.")]
         [OptionParameter(SolidLabel = "hash", BriefLabel = "h")]
         public String Hash { get; set; }
 
-        [HelpSummary("Fully qualified path of a single file that should be verified. But note, this argument is only allowed along with verify mode.")]
+        [HelpSummary("Fully qualified path of a single file that should be verified. But note, this argument is only allowed along with checksum verification.")]
         [OptionParameter(SolidLabel = "file", BriefLabel = "f")]
         public String File { get; set; }
 
@@ -67,7 +67,7 @@ namespace Plexdata.FileChecksum.Cli.Models
         [SwitchParameter(SolidLabel = "help", BriefLabel = "?")]
         public Boolean IsHelp { get; set; }
 
-        [HelpSummary(Options = "List of fully qualified file names for which checksums should be created. But note, this argument is only allowed along with create mode.")]
+        [HelpSummary(Options = "List of fully qualified file names (separated by spaces) for which checksums should be created. But note, this argument is only allowed along with checksum creation.")]
         [VerbalParameter]
         public String[] Files { get; set; }
     }

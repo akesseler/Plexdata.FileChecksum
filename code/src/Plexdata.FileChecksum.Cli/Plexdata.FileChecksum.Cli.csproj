@@ -15,6 +15,7 @@
     <PackageIconUrl>https://github.com/akesseler/Plexdata.FileChecksum/blob/master/icon.png?raw=true</PackageIconUrl>
     <PackageTags>file checksum analyze verify create MD5 SHA1 SHA256</PackageTags>
     <PackageReleaseNotes>See project history under https://github.com/akesseler/Plexdata.FileChecksum/blob/master/code/src/HISTORY.md</PackageReleaseNotes>
+    <ApplicationIcon>app.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
