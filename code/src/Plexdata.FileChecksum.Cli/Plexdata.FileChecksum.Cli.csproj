@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>fcc</AssemblyName>
     <Description>This console program allows either to verify the checksum of a single file or to create checksums of multiple files.</Description>
     <Copyright>Copyright © 2020 - plexdata.de</Copyright>
@@ -12,14 +12,22 @@
     <Product>Plexdata.FileChecksum</Product>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/akesseler/Plexdata.FileChecksum</PackageProjectUrl>
-    <PackageIconUrl>https://github.com/akesseler/Plexdata.FileChecksum/blob/master/icon.png?raw=true</PackageIconUrl>
+    <PackageIconUrl></PackageIconUrl>
     <PackageTags>file checksum analyze verify create MD5 SHA1 SHA256</PackageTags>
     <PackageReleaseNotes>See project history under https://github.com/akesseler/Plexdata.FileChecksum/blob/master/code/src/HISTORY.md</PackageReleaseNotes>
     <ApplicationIcon>app.ico</ApplicationIcon>
+    <PackageIcon>icon.png</PackageIcon>
+    <NeutralLanguage>en</NeutralLanguage>
+    <StartupObject>Plexdata.FileChecksum.Cli.Program</StartupObject>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,6 +39,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="..\..\..\LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
   </ItemGroup>
 

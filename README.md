@@ -163,6 +163,9 @@ The program´s help screen was shown.
 Current operation has been canceled by user. This error code represents the Window 
 error code `COR_E_OPERATIONCANCELED`.
 
+Other application exit codes can also occur, for instance in case of an internal 
+program exception. In such cases an additional error message is printed out.
+
 ### Command Line Arguments
 
 In this section please find all command line arguments that are supported at the 
@@ -197,6 +200,9 @@ Shows the help screen.
 List of fully qualified file names (separated by spaces) for which checksums should 
 be created. But note, this argument is only allowed along with checksum creation.
 
+The usage of wild cards (`*` and `?`) is supported as well. Please keep in mind, files 
+with search pattern are expected inside current directory if no path is defined.
+
 **Examples**
 
 _Verify_  
@@ -205,5 +211,6 @@ _Verify_
 _Create_  
 `fcc.exe -c -m <methods> file1 [file2 .. file(n)]`
 
-Finally, please keep in mind that it is strictly recommended to enclose each provided file path in double-quotes.
+Finally, please keep in mind that it is strictly recommended to enclose each provided 
+file path in double-quotes.
 
