@@ -23,16 +23,17 @@
  */
 
 using Plexdata.ArgumentParser.Extensions;
-using Plexdata.FileChecksum.Constants;
-using Plexdata.FileChecksum.Factories;
-using Plexdata.FileChecksum.Interfaces;
 using Plexdata.FileChecksum.Cli.Extensions;
 using Plexdata.FileChecksum.Cli.Helpers;
 using Plexdata.FileChecksum.Cli.Models;
+using Plexdata.FileChecksum.Constants;
+using Plexdata.FileChecksum.Factories;
+using Plexdata.FileChecksum.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -234,6 +235,8 @@ namespace Plexdata.FileChecksum.Cli
         {
             List<Output> outputs = new List<Output>();
 
+            Program.ExpandWildcards(arguments);
+
             foreach (String file in arguments.Files)
             {
                 using (FileStream stream = File.OpenRead(file))
@@ -280,6 +283,39 @@ namespace Plexdata.FileChecksum.Cli
             return ExitCodeHelper.Success;
         }
 
+        private static void ExpandWildcards(Arguments arguments)
+        {
+            if (arguments.Files.Any(x => x.IndexOfAny(new Char[] { '*', '?' }) != -1))
+            {
+                List<String> results = new List<String>();
+
+                foreach (String file in arguments.Files)
+                {
+                    String path = Path.GetDirectoryName(file);
+                    String find = Path.GetFileName(file);
+
+                    if (String.IsNullOrEmpty(path))
+                    {
+                        path = Directory.GetCurrentDirectory();
+                    }
+
+                    String[] expanded = Directory.GetFiles(path, find);
+
+                    if (expanded != null && expanded.Any())
+                    {
+                        results.AddRange(expanded);
+                    }
+                }
+
+                if (!results.Any())
+                {
+                    throw new FileNotFoundException("Could not find any fitting file.");
+                }
+
+                arguments.Files = results.Distinct(StringComparer.InvariantCultureIgnoreCase).ToArray();
+            }
+        }
+
         private static Int32 PrintHelp()
         {
             return Program.PrintHelp(null);
@@ -308,5 +344,3 @@ namespace Plexdata.FileChecksum.Cli
         }
     }
 }
-
-

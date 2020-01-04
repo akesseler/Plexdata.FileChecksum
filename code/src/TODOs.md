@@ -2,6 +2,7 @@
 
 **TODOs**
 
-- Migrate the executable to .NET Core v3.1 as next.
-- Migrate the library to .NET Standard v2.1 as soon as it is released.
+- Migrate the library to _.NET Standard 2.1_ as soon as possible.
+  - For the moment it seems to be impossible because of projects with 
+    _.NET Framework 4.8_ do not support libraries with _.NET Standard 2.1_.
 
