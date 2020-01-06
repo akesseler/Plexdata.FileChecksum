@@ -17,6 +17,7 @@
     <PackageTags>file checksum analyze verify create MD5 SHA1 SHA256</PackageTags>
     <PackageIcon>icon.png</PackageIcon>
     <NeutralLanguage>en</NeutralLanguage>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

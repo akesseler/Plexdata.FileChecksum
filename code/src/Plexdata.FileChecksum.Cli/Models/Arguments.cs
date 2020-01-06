@@ -63,6 +63,10 @@ namespace Plexdata.FileChecksum.Cli.Models
         [OptionParameter(SolidLabel = "file", BriefLabel = "f")]
         public String File { get; set; }
 
+        [HelpSummary("Shows product version number.")]
+        [SwitchParameter(SolidLabel = "version")]
+        public Boolean IsVersion { get; set; }
+
         [HelpSummary("Shows this help screen.")]
         [SwitchParameter(SolidLabel = "help", BriefLabel = "?")]
         public Boolean IsHelp { get; set; }
