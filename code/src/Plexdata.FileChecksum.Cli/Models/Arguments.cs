@@ -24,8 +24,8 @@
 
 using Plexdata.ArgumentParser.Attributes;
 using Plexdata.ArgumentParser.Constants;
-using Plexdata.FileChecksum.Constants;
 using Plexdata.FileChecksum.Cli.Converters;
+using Plexdata.FileChecksum.Constants;
 using System;
 
 namespace Plexdata.FileChecksum.Cli.Models
@@ -33,9 +33,9 @@ namespace Plexdata.FileChecksum.Cli.Models
     [ParametersGroup]
     [HelpLicense(Placeholders.Copyright)]
     [HelpPreface(Placeholders.Description)]
-    [HelpUtilize("fcc.exe <options> <files>")]
-    [HelpUtilize(Heading = "Examples:", Section = "Verify:", Content = "fcc.exe -v -m <method> -h <hash> -f <path>")]
-    [HelpUtilize(Heading = "Examples:", Section = "Create:", Content = "fcc.exe -c -m <methods> file1 [file2 .. file(n)]")]
+    [HelpUtilize(Placeholders.Program + " <options> <files>")]
+    [HelpUtilize(Heading = "Examples:", Section = "Verify:", Content = Placeholders.Program + " -v -m <method> -h <hash> -f <path>")]
+    [HelpUtilize(Heading = "Examples:", Section = "Create:", Content = Placeholders.Program + " -c -m <methods> file1 [file2 .. file(n)]")]
     internal class Arguments
     {
         [HelpSummary("Enables the program's verify mode.")]
@@ -48,7 +48,7 @@ namespace Plexdata.FileChecksum.Cli.Models
 
         [HelpSummary("Enables the program's sparse mode.")]
         [SwitchParameter(SolidLabel = "sparse", BriefLabel = "s")]
-        public Boolean IsSparse{ get; set; }
+        public Boolean IsSparse { get; set; }
 
         [HelpSummary("Comma separated list of checksum methods. Allowed are `md5`, `sha1`, `sha256`, `all` or any combination. But be aware, only the first applied method is used in verify mode.")]
         [OptionParameter(SolidLabel = "methods", BriefLabel = "m", Delimiter = ",")]
@@ -67,7 +67,10 @@ namespace Plexdata.FileChecksum.Cli.Models
         [SwitchParameter(SolidLabel = "help", BriefLabel = "?")]
         public Boolean IsHelp { get; set; }
 
-        [HelpSummary(Options = "List of fully qualified file names (separated by spaces) for which checksums should be created. But note, this argument is only allowed along with checksum creation.")]
+        [HelpSummary(
+            Options = "<files>",
+            Content = "List of fully qualified file names (separated by spaces) for which checksums should be created. But note, " +
+                      "this argument is only allowed along with checksum creation. Wildcards (such as '*' and '?') are supported.")]
         [VerbalParameter]
         public String[] Files { get; set; }
     }

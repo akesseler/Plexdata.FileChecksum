@@ -31,10 +31,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Plexdata.ArgumentParser.NET" Version="1.0.5" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Plexdata.FileChecksum.Analyzer\Plexdata.FileChecksum.Analyzer.csproj" />
   </ItemGroup>
 
@@ -44,6 +40,10 @@
       <PackagePath></PackagePath>
     </None>
     <None Include="..\..\..\LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Plexdata.ArgumentParser.NET" Version="1.0.6" />
   </ItemGroup>
 
 </Project>
