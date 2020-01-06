@@ -157,7 +157,7 @@ No error occurred.
 Verification failed and checksum is not confirmed.
 
 `1 (0x00000001)`  
-The program´s help screen was shown.
+The program´s help screen or its product version number was shown.
 
 `-2146233029 (0x8013153B)`  
 Current operation has been canceled by user. This error code represents the Window 
@@ -193,8 +193,11 @@ with checksum verification.
 Fully qualified path of a single file that should be verified. But note, this argument 
 is only allowed along with checksum verification.
 
+`--version`  
+Shows the program´s product version number and exits.
+
 `--help` / `-?`  
-Shows the help screen.
+Shows the program´s help screen and exits.
 
 `<files>`  
 List of fully qualified file names (separated by spaces) for which checksums should 

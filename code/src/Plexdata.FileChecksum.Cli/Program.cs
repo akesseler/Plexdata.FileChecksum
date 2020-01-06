@@ -57,6 +57,11 @@ namespace Plexdata.FileChecksum.Cli
                     arguments.Process(options);
                     arguments.Validate();
 
+                    if (arguments.IsVersion)
+                    {
+                        Environment.Exit(Program.PrintVersion());
+                    }
+
                     if (!arguments.IsVerify && !arguments.IsCreate || arguments.IsHelp)
                     {
                         Environment.Exit(Program.PrintHelp());
@@ -314,6 +319,13 @@ namespace Plexdata.FileChecksum.Cli
 
                 arguments.Files = results.Distinct(StringComparer.InvariantCultureIgnoreCase).ToArray();
             }
+        }
+
+        private static Int32 PrintVersion()
+        {
+            FileVersionInfo version = Process.GetCurrentProcess().MainModule.FileVersionInfo;
+            Console.WriteLine(version.ProductVersion);
+            return ExitCodeHelper.Nothing;
         }
 
         private static Int32 PrintHelp()
