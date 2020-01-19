@@ -14,7 +14,7 @@
     <PackageProjectUrl>https://github.com/akesseler/Plexdata.FileChecksum</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <PackageReleaseNotes>See project history under https://github.com/akesseler/Plexdata.FileChecksum/blob/master/code/src/HISTORY.md</PackageReleaseNotes>
-    <PackageTags>file checksum analyze verify create MD5 SHA1 SHA256</PackageTags>
+    <PackageTags>file checksum analyze verify create MD5 SHA1 SHA256 SHA384 SHA512</PackageTags>
     <PackageIcon>icon.png</PackageIcon>
     <NeutralLanguage>en</NeutralLanguage>
     <Version>1.0.1</Version>

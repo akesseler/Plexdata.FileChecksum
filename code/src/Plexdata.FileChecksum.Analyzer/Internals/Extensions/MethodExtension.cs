@@ -54,9 +54,13 @@ namespace Plexdata.FileChecksum.Internals.Extensions
         /// <seealso cref="MD5.Create()"/>
         /// <seealso cref="SHA1.Create()"/>
         /// <seealso cref="SHA256.Create()"/>
+        /// <seealso cref="SHA384.Create()"/>
+        /// <seealso cref="SHA512.Create()"/>
         /// <seealso cref="MD5.Create(String)"/>
         /// <seealso cref="SHA1.Create(String)"/>
         /// <seealso cref="SHA256.Create(String)"/>
+        /// <seealso cref="SHA384.Create(String)"/>
+        /// <seealso cref="SHA512.Create(String)"/>
         /// <exception cref="NotSupportedException">
         /// </exception>
         /// <exception cref="InvalidOperationException">
@@ -71,6 +75,10 @@ namespace Plexdata.FileChecksum.Internals.Extensions
                     return MethodExtension.CreateSha1HashAlgorithm(algorithm);
                 case Method.Sha256:
                     return MethodExtension.CreateSha256HashAlgorithm(algorithm);
+                case Method.Sha384:
+                    return MethodExtension.CreateSha384HashAlgorithm(algorithm);
+                case Method.Sha512:
+                    return MethodExtension.CreateSha512HashAlgorithm(algorithm);
                 default:
                     throw MethodExtension.GetNotSupportedException(method, algorithm);
             }
@@ -88,7 +96,7 @@ namespace Plexdata.FileChecksum.Internals.Extensions
         /// </exception>
         private static HashAlgorithm CreateMd5HashAlgorithm(String algorithm)
         {
-            HashAlgorithm result = null;
+            HashAlgorithm result;
 
             if (String.IsNullOrWhiteSpace(algorithm))
             {
@@ -119,7 +127,7 @@ namespace Plexdata.FileChecksum.Internals.Extensions
         /// </exception>
         private static HashAlgorithm CreateSha1HashAlgorithm(String algorithm)
         {
-            HashAlgorithm result = null;
+            HashAlgorithm result;
 
             if (String.IsNullOrWhiteSpace(algorithm))
             {
@@ -150,7 +158,7 @@ namespace Plexdata.FileChecksum.Internals.Extensions
         /// </exception>
         private static HashAlgorithm CreateSha256HashAlgorithm(String algorithm)
         {
-            HashAlgorithm result = null;
+            HashAlgorithm result;
 
             if (String.IsNullOrWhiteSpace(algorithm))
             {
@@ -164,6 +172,68 @@ namespace Plexdata.FileChecksum.Internals.Extensions
             if (result is null)
             {
                 throw MethodExtension.GetInvalidOperationException(Method.Sha256, algorithm);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        /// <param name="algorithm">
+        /// </param>
+        /// <returns>
+        /// </returns>
+        /// <exception cref="InvalidOperationException">
+        /// </exception>
+        private static HashAlgorithm CreateSha384HashAlgorithm(String algorithm)
+        {
+            HashAlgorithm result;
+
+            if (String.IsNullOrWhiteSpace(algorithm))
+            {
+                result = SHA384.Create();
+            }
+            else
+            {
+                result = SHA384.Create(algorithm);
+            }
+
+            if (result is null)
+            {
+                throw MethodExtension.GetInvalidOperationException(Method.Sha384, algorithm);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        /// <param name="algorithm">
+        /// </param>
+        /// <returns>
+        /// </returns>
+        /// <exception cref="InvalidOperationException">
+        /// </exception>
+        private static HashAlgorithm CreateSha512HashAlgorithm(String algorithm)
+        {
+            HashAlgorithm result;
+
+            if (String.IsNullOrWhiteSpace(algorithm))
+            {
+                result = SHA512.Create();
+            }
+            else
+            {
+                result = SHA512.Create(algorithm);
+            }
+
+            if (result is null)
+            {
+                throw MethodExtension.GetInvalidOperationException(Method.Sha512, algorithm);
             }
 
             return result;
@@ -206,6 +276,8 @@ namespace Plexdata.FileChecksum.Internals.Extensions
         /// <seealso cref="CreateMd5HashAlgorithm(String)"/>
         /// <seealso cref="CreateSha1HashAlgorithm(String)"/>
         /// <seealso cref="CreateSha256HashAlgorithm(String)"/>
+        /// <seealso cref="CreateSha384HashAlgorithm(String)"/>
+        /// <seealso cref="CreateSha512HashAlgorithm(String)"/>
         private static InvalidOperationException GetInvalidOperationException(Method method, String algorithm)
         {
             if (String.IsNullOrWhiteSpace(algorithm))

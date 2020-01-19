@@ -1,5 +1,9 @@
 
 
+**1.0.2**
+- Support of SHA384 and SHA512 methods.
+- Introduction of a GUI application.
+
 **1.0.1**
 - Update of argument parser package.
 - Minor help summary changes.

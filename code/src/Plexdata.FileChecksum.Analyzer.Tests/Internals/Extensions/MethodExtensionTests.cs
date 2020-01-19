@@ -44,6 +44,12 @@ namespace Plexdata.FileChecksum.Tests.Internals.Extensions
         [TestCase(Method.Sha256, null, typeof(SHA256Managed))]
         [TestCase(Method.Sha256, "", typeof(SHA256Managed))]
         [TestCase(Method.Sha256, "  ", typeof(SHA256Managed))]
+        [TestCase(Method.Sha384, null, typeof(SHA384Managed))]
+        [TestCase(Method.Sha384, "", typeof(SHA384Managed))]
+        [TestCase(Method.Sha384, "  ", typeof(SHA384Managed))]
+        [TestCase(Method.Sha512, null, typeof(SHA512Managed))]
+        [TestCase(Method.Sha512, "", typeof(SHA512Managed))]
+        [TestCase(Method.Sha512, "  ", typeof(SHA512Managed))]
         public void Create_ValidMethodInvalidAlgorithm_ResultAsExpected(Method method, String algorithm, Type expected)
         {
             HashAlgorithm actual = method.Create(algorithm);
@@ -64,6 +70,14 @@ namespace Plexdata.FileChecksum.Tests.Internals.Extensions
         [TestCase(Method.Sha256, "System.Security.Cryptography.SHA256Cng", typeof(SHA256Cng))]
         [TestCase(Method.Sha256, "System.Security.Cryptography.SHA256Managed", typeof(SHA256Managed))]
         [TestCase(Method.Sha256, "System.Security.Cryptography.SHA256CryptoServiceProvider", typeof(SHA256CryptoServiceProvider))]
+        [TestCase(Method.Sha384, "SHA384", typeof(SHA384Managed))]
+        [TestCase(Method.Sha384, "System.Security.Cryptography.SHA384Cng", typeof(SHA384Cng))]
+        [TestCase(Method.Sha384, "System.Security.Cryptography.SHA384Managed", typeof(SHA384Managed))]
+        [TestCase(Method.Sha384, "System.Security.Cryptography.SHA384CryptoServiceProvider", typeof(SHA384CryptoServiceProvider))]
+        [TestCase(Method.Sha512, "SHA512", typeof(SHA512Managed))]
+        [TestCase(Method.Sha512, "System.Security.Cryptography.SHA512Cng", typeof(SHA512Cng))]
+        [TestCase(Method.Sha512, "System.Security.Cryptography.SHA512Managed", typeof(SHA512Managed))]
+        [TestCase(Method.Sha512, "System.Security.Cryptography.SHA512CryptoServiceProvider", typeof(SHA512CryptoServiceProvider))]
         public void Create_ValidMethodValidAlgorithm_ResultAsExpected(Method method, String algorithm, Type expected)
         {
             Assert.That(method.Create(algorithm), Is.InstanceOf(expected));
@@ -88,6 +102,8 @@ namespace Plexdata.FileChecksum.Tests.Internals.Extensions
         [TestCase(Method.Md5, "System.Security.Cryptography.MD5Managed")] // See notes...
         [TestCase(Method.Sha1, "some-algorithm-name")]
         [TestCase(Method.Sha256, "some-algorithm-name")]
+        [TestCase(Method.Sha384, "some-algorithm-name")]
+        [TestCase(Method.Sha512, "some-algorithm-name")]
         public void Create_ValidMethodWrongAlgorithm_ThrowsInvalidOperationException(Method method, String algorithm)
         {
             // NOTE: Notes about this integration test.
