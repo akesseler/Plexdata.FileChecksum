@@ -50,7 +50,7 @@ namespace Plexdata.FileChecksum.Cli.Models
         [SwitchParameter(SolidLabel = "sparse", BriefLabel = "s")]
         public Boolean IsSparse { get; set; }
 
-        [HelpSummary("Comma separated list of checksum methods. Allowed are `md5`, `sha1`, `sha256`, `all` or any combination. But be aware, only the first applied method is used in verify mode.")]
+        [HelpSummary("Comma separated list of checksum methods. Allowed are `md5`, `sha1`, `sha256`, `sha384`, `sha512`, `all` or any combination. But be aware, only the first applied method is used in verify mode.")]
         [OptionParameter(SolidLabel = "methods", BriefLabel = "m", Delimiter = ",")]
         [CustomConverter(typeof(MethodsConverter))]
         public Method[] Methods { get; set; }

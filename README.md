@@ -181,9 +181,9 @@ Enables the program´s create mode.
 Enables the program´s sparse mode.
 
 `--methods` / `-m`  
-Comma separated list of checksum methods. Allowed are `md5`, `sha1`, `sha256`, `all` 
-or any combination. But be aware, only the first applied method is used in verify 
-mode.
+Comma separated list of checksum methods. Allowed are `md5`, `sha1`, `sha256`, `sha384`, 
+`sha512`, `all` or any combination. But be aware, only the first applied method is used 
+in verify mode.
 
 `--hash` / `-h`  
 Single hash value to be verified. But note, this argument is only allowed along 

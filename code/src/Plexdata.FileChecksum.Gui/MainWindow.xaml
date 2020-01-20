@@ -1,0 +1,464 @@
+﻿<!--
+ * MIT License
+ * 
+ * Copyright (c) 2020 plexdata.de
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ -->
+
+<Window x:Class="Plexdata.FileChecksum.Gui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Plexdata.FileChecksum.Gui"
+        xmlns:converters="clr-namespace:Plexdata.FileChecksum.Gui.Converters"
+        xmlns:commands="clr-namespace:Plexdata.FileChecksum.Gui.Helpers"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1100">
+    <Window.Resources>
+        <converters:UpperCaseConverter x:Key="UpperCaseConverter"/>
+        <converters:DisplayDateConverter x:Key="DisplayDateConverter"/>
+        <converters:DisplaySizeConverter x:Key="DisplaySizeConverter"/>
+    </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Command="Open" Modifiers="Ctrl" Key="O"/>
+        <KeyBinding Command="Close" Modifiers="Ctrl" Key="W"/>
+        <KeyBinding Command="Help" Modifiers="" Key="F1"/>
+    </Window.InputBindings>
+    <Window.CommandBindings>
+        <CommandBinding Command="Open" Executed="OnExecutedOpenCommand"/>
+        <CommandBinding Command="Close" Executed="OnExecutedExitCommand"/>
+        <CommandBinding Command="Help" Executed="OnExecutedAboutCommand"/>
+        <CommandBinding Command="commands:CustomCommands.Insert" Executed="OnExecutedInsertCommand" />
+        <CommandBinding Command="commands:CustomCommands.Clear" Executed="OnExecutedClearCommand" />
+        <CommandBinding Command="commands:CustomCommands.Create" Executed="OnExecutedCreateCommand" />
+        <CommandBinding Command="commands:CustomCommands.Verify" Executed="OnExecutedVerifyCommand" />
+        <CommandBinding Command="commands:CustomCommands.Export" Executed="OnExecutedExportCommand" />
+        <CommandBinding Command="commands:CustomCommands.Import" Executed="OnExecutedImportCommand" />
+    </Window.CommandBindings>
+    <Grid>
+        <DockPanel>
+            <ToolBar DockPanel.Dock="Top">
+                <Button Width="32" Height="32" ToolTip="Close window and exit application." Command="Close">
+                    <Path 
+                        Fill="Black"
+                        Stretch="Uniform"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="M77.13 43.06 A127.559 127.559 -180 1 0 177.99 43.06 A5.66929 5.66929 -180 0 0 170.08 48.27 L170.08 83.38
+							 A5.66929 5.66929 -180 0 0 172.74 88.18 A85.0394 85.0394 0 1 1 82.38 88.18 A5.66929 5.66929 -180 0 0
+							 85.04 83.38 L85.04 48.27 A5.66929 5.66929 -180 0 0 77.13 43.06 Z M117.64 188.57 L137.48 188.57 A11.3386
+							 11.3386 -180 0 0 148.82 177.23 L148.82 15.66 A11.3386 11.3386 -180 0 0 137.48 4.32 L117.64 4.32 A11.3386
+							 11.3386 -180 0 0 106.3 15.66 L106.3 177.23 A11.3386 11.3386 -180 0 0 117.64 188.57 Z" />
+                </Button>
+                <Separator />
+                <Button Width="32" Height="32" ToolTip="Choose a folder to load all files from." Command="Open">
+                    <Path 
+                        Fill="Black"
+                        Stretch="Uniform"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="M246.2 173.34 A11.603 11.603 0 0 1 256.71 189.85 L221.79 264.74 A11.603 11.603 0 0 1 211.28 271.44 L43.88
+							 271.44 A11.603 11.603 0 0 1 33.36 254.93 L68.28 180.04 A11.603 11.603 0 0 1 78.8 173.34 L246.2 173.34
+							 Z M221.69 287.78 A11.603 11.603 -180 0 0 232.21 281.09 L282.38 173.5 A11.603 11.603 -180 0 0 271.86
+							 156.99 L229.16 156.99 L229.16 125.34 A11.603 11.603 -180 0 0 217.56 113.74 L87.02 113.74 L87.02 96.34
+							 A11.603 11.603 -180 0 0 75.42 84.73 L11.6 84.73 A11.603 11.603 -180 0 0 -0 96.34 L0 276.18 A11.603 11.603
+							 -180 0 0 11.6 287.78 L221.69 287.78 Z" />
+                </Button>
+                <Button Width="32" Height="32" ToolTip="Add some files for processing." Command="commands:CustomCommands.Insert">
+                    <Path 
+                        Fill="Black"
+                        Stretch="Uniform"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="M70.87 94.52 A106.299 106.299 0 0 1 92.13 93.8 L92.13 33.33 A10.6299 10.6299 0 0 1 102.76 22.7 L251.57 22.7
+							 A10.6299 10.6299 0 0 1 262.2 33.33 L262.2 199.87 L212.6 199.87 A14.1732 14.1732 -180 0 0 198.43 214.04
+							 L198.43 263.64 L170.08 263.64 A106.299 106.299 0 0 1 148.82 284.9 L198.43 284.9 L283.46 199.87 L283.46
+							 15.61 A14.1732 14.1732 -180 0 0 269.29 1.44 L85.04 1.44 A14.1732 14.1732 -180 0 0 70.87 15.61 L70.87
+							 94.52 Z M170.08 199.87 A85.0394 85.0394 -180 1 0 0 199.87 A85.0394 85.0394 -180 1 0 170.08 199.87 Z
+							 M148.82 199.87 A63.7795 63.7795 0 1 1 21.26 199.87 A63.7795 63.7795 0 1 1 148.82 199.87 Z M74.41 189.24
+							 L49.61 189.24 A7.08661 7.08661 -180 0 0 42.52 196.32 L42.52 203.41 A7.08661 7.08661 -180 0 0 49.61 210.5
+							 L74.41 210.5 L74.41 235.3 A7.08661 7.08661 -180 0 0 81.5 242.38 L88.58 242.38 A7.08661 7.08661 -180
+							 0 0 95.67 235.3 L95.67 210.5 L120.47 210.5 A7.08661 7.08661 -180 0 0 127.56 203.41 L127.56 196.32 A7.08661
+							 7.08661 -180 0 0 120.47 189.24 L95.67 189.24 L95.67 164.43 A7.08661 7.08661 -180 0 0 88.58 157.35 L81.5
+							 157.35 A7.08661 7.08661 -180 0 0 74.41 164.43 L74.41 189.24 Z" />
+                </Button>
+                <Button Width="32" Height="32" ToolTip="Remove all files from list." Command="commands:CustomCommands.Clear">
+                    <Path 
+                        Fill="Black"
+                        Stretch="Uniform"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="M97.82 178 L97.82 131.83 A17.0079 17.0079 -180 0 0 80.81 114.83 L72.3 114.83 A17.0079 17.0079 -180 0 0 55.3
+							 131.83 L55.3 178 L20.72 197.76 A7.32691 7.32691 -180 0 0 17.03 204.12 L17.03 208.37 L136.08 208.37 L136.08
+							 204.12 A7.32691 7.32691 -180 0 0 132.39 197.76 L97.82 178 Z M0 284.9 L119.06 284.9 A110.34 88.0821 -87.25
+							 0 0 136.06 216.87 L17.01 216.87 A127.878 102.082 92.75 0 1 0 284.9 Z M136.05 284.9 L198.43 284.9 L283.46
+							 199.87 L283.46 15.61 A14.1732 14.1732 -180 0 0 269.29 1.44 L85.04 1.44 A14.1732 14.1732 -180 0 0 70.87
+							 15.61 L70.87 100.65 L92.13 100.65 L92.13 33.33 A10.6299 10.6299 0 0 1 102.76 22.7 L251.57 22.7 A10.6299
+							 10.6299 0 0 1 262.2 33.33 L262.2 199.87 L212.6 199.87 A14.1732 14.1732 -180 0 0 198.43 214.04 L198.43
+							 263.64 L145.71 263.64 A110.34 88.0821 92.75 0 1 136.05 284.9 Z" />
+                </Button>
+                <Separator />
+                <Button Width="32" Height="32" ToolTip="Create new checksums for all selected files." Command="commands:CustomCommands.Create" >
+                    <Path 
+                        Fill="Black"
+                        Stretch="Uniform"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="M95.24 284.9 A6.80315 6.80315 -180 0 0 102.05 278.1 L102.05 256.91 A59.5276 59.5276 -180 0 0 113.35 252.23
+							 L128.33 267.21 A6.80315 6.80315 -180 0 0 137.96 267.21 L152.39 252.78 A6.80315 6.80315 -180 0 0 152.39
+							 243.16 L137.4 228.18 A59.5276 59.5276 -180 0 0 142.09 216.87 L163.28 216.87 A6.80315 6.80315 -180 0
+							 0 170.08 210.07 L170.08 189.66 A6.80315 6.80315 -180 0 0 163.28 182.86 L142.09 182.86 A59.5276 59.5276
+							 -180 0 0 137.4 171.55 L152.39 156.57 A6.80315 6.80315 -180 0 0 152.39 146.95 L137.96 132.52 A6.80315
+							 6.80315 -180 0 0 128.33 132.52 L113.35 147.5 A59.5276 59.5276 -180 0 0 102.05 142.82 L102.05 121.63
+							 A6.80315 6.80315 -180 0 0 95.24 114.83 L74.83 114.83 A6.80315 6.80315 -180 0 0 68.03 121.63 L68.03 142.82
+							 A59.5276 59.5276 -180 0 0 56.73 147.5 L41.74 132.52 A6.80315 6.80315 -180 0 0 32.12 132.52 L17.69 146.95
+							 A6.80315 6.80315 -180 0 0 17.69 156.57 L32.68 171.55 A59.5276 59.5276 -180 0 0 27.99 182.86 L6.8 182.86
+							 A6.80315 6.80315 -180 0 0 -0 189.66 L0 210.07 A6.80315 6.80315 -180 0 0 6.8 216.87 L27.99 216.87 A59.5276
+							 59.5276 -180 0 0 32.68 228.18 L17.69 243.16 A6.80315 6.80315 -180 0 0 17.69 252.78 L32.12 267.21 A6.80315
+							 6.80315 -180 0 0 41.74 267.21 L56.73 252.23 A59.5276 59.5276 -180 0 0 68.03 256.91 L68.03 278.1 A6.80315
+							 6.80315 -180 0 0 74.83 284.9 L95.24 284.9 Z M114.8 199.87 A29.7638 29.7638 0 1 1 55.28 199.87 A29.7638
+							 29.7638 0 1 1 114.8 199.87 Z M198.43 284.9 L283.46 199.87 L283.46 15.61 A14.1732 14.1732 -180 0 0 269.29
+							 1.44 L85.04 1.44 A14.1732 14.1732 -180 0 0 70.87 15.61 L70.87 94.52 A106.299 106.299 0 0 1 92.13 93.8
+							 L92.13 33.33 A10.6299 10.6299 0 0 1 102.76 22.7 L251.57 22.7 A10.6299 10.6299 0 0 1 262.2 33.33 L262.2
+							 199.87 L212.6 199.87 A14.1732 14.1732 -180 0 0 198.43 214.04 L198.43 263.64 L170.08 263.64 A106.299
+							 106.299 0 0 1 148.82 284.9 L198.43 284.9 Z" />
+                </Button>
+                <Button Width="32" Height="32" ToolTip="Verify applied checksums for all selected files." Command="commands:CustomCommands.Verify" >
+                    <Path 
+                        Fill="Black"
+                        Stretch="Uniform"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="M212.96 38.07 L212.96 15.61 A14.1973 14.1732 -180 0 0 198.76 1.44 L14.2 1.44 A14.1973 14.1732 -180 0 0 -0
+							 15.61 L0 270.73 A14.1973 14.1732 -180 0 0 14.2 284.9 L127.78 284.9 L210.72 202.11 L200.03 191.43 A85.184
+							 85.0394 0 0 1 191.66 194.05 L191.66 199.87 L141.97 199.87 A14.1973 14.1732 -180 0 0 127.78 214.04 L127.78
+							 263.64 L31.94 263.64 A10.648 10.6299 0 0 1 21.3 253.01 L21.3 33.33 A10.648 10.6299 0 0 1 31.94 22.7
+							 L181.02 22.7 A10.648 10.6299 0 0 1 190.81 29.16 A85.184 85.0394 0 0 1 212.96 38.07 Z M220.06 111.72
+							 A49.6907 49.6063 0 1 1 120.68 111.72 A49.6907 49.6063 0 1 1 220.06 111.72 Z M233.61 160.82 L227.1 154.32
+							 A70.9867 70.8661 -180 1 0 213.04 168.35 L219.56 174.85 L215.54 178.86 A5.67893 5.66929 -180 0 0 215.54
+							 186.88 L251.68 222.96 A5.67893 5.66929 -180 0 0 259.72 222.96 L281.8 200.91 A5.67893 5.66929 -180 0
+							 0 281.8 192.89 L245.66 156.81 A5.67893 5.66929 -180 0 0 237.63 156.81 L233.61 160.82 Z" />
+                </Button>
+                <Separator />
+                <Button Width="32" Height="32" ToolTip="Export all calculated checksums." Command="commands:CustomCommands.Export">
+                    <Path 
+                        Fill="Black"
+                        Stretch="Uniform"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="M200.93 95.13 A136.767 136.719 -180 0 0 62.18 254.58 A136.767 136.719 0 0 1 200.85 140.7 L178.54 163 A11.3972
+							 11.3933 -180 0 0 186.6 182.45 L218.87 182.45 A11.3972 11.3933 -180 0 0 226.93 179.12 L280.13 125.94
+							 A11.3972 11.3933 -180 0 0 280.13 109.82 L226.9 56.61 A11.3972 11.3933 -180 0 0 218.84 53.28 L186.57
+							 53.28 A11.3972 11.3933 -180 0 0 178.52 72.73 L200.93 95.13 Z M31.9 270.36 A10.6336 10.6299 0 0 1 21.27
+							 259.73 L21.27 40.05 A10.6336 10.6299 0 0 1 31.9 29.42 L180.77 29.42 A10.6336 10.6299 0 0 1 190.8 36.51
+							 L212.67 36.51 L212.67 22.33 A14.1781 14.1732 -180 0 0 198.49 8.16 L14.18 8.16 A14.1781 14.1732 -180
+							 0 0 -0 22.33 L0 277.45 A14.1781 14.1732 -180 0 0 14.18 291.62 L127.6 291.62 L212.67 206.59 L212.67 198.08
+							 L191.4 198.08 L191.4 206.59 L141.78 206.59 A14.1781 14.1732 -180 0 0 127.6 220.76 L127.6 270.36 L31.9
+							 270.36 Z" />
+                </Button>
+                <Button Width="32" Height="32" ToolTip="Import a file checksum definition." Command="commands:CustomCommands.Import">
+                    <Path 
+                        Fill="Black"
+                        Stretch="Uniform"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="M212.68 182.07 A145.469 145.41 -0 0 0 191.42 170.45 L191.42 204.67 L141.79 204.67 A14.1789 14.1732 -180
+							 0 0 127.61 218.84 L127.61 268.44 L31.9 268.44 A10.6342 10.6299 0 0 1 21.27 257.81 L21.27 38.13 A10.6342
+							 10.6299 0 0 1 31.9 27.5 L180.78 27.5 A10.6342 10.6299 0 0 1 191.42 38.13 L191.42 76.97 A158.324 158.26
+							 180 0 1 212.68 85.44 L212.68 20.41 A14.1789 14.1732 -180 0 0 198.51 6.24 L14.18 6.24 A14.1789 14.1732
+							 -180 0 0 -0 20.41 L0 275.53 A14.1789 14.1732 -180 0 0 14.18 289.7 L127.61 289.7 L212.68 204.67 L212.68
+							 182.07 Z M142.79 93.21 L165.21 70.81 A11.3979 11.3933 -180 0 0 157.15 51.36 L124.88 51.36 A11.3979 11.3933
+							 -180 0 0 116.82 54.69 L63.59 107.9 A11.3979 11.3933 -180 0 0 63.59 124.02 L116.79 177.2 A11.3979 11.3933
+							 -180 0 0 124.85 180.53 L157.12 180.53 A11.3979 11.3933 -180 0 0 165.18 161.08 L142.87 138.78 A136.774
+							 136.719 0 0 1 281.55 252.66 A136.774 136.719 -180 0 0 142.79 93.21 Z" />
+                </Button>
+                <Separator />
+                <Button Width="32" Height="32" ToolTip="Show info box. (F1)" Command="Help">
+                    <Path 
+                        Fill="Black"
+                        Stretch="Uniform"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="M42.52 15.66 L42.52 49.67 A11.3386 11.3386 -180 0 0 53.86 61.01 L87.87 61.01 A11.3386 11.3386 -180 0 0 99.21
+							 49.67 L99.21 15.66 A11.3386 11.3386 -180 0 0 87.87 4.32 L53.86 4.32 A11.3386 11.3386 -180 0 0 42.52
+							 15.66 Z M99.21 231.09 L99.21 100.7 A11.3386 11.3386 -180 0 0 87.87 89.36 L32.6 89.36 A11.3386 11.3386
+							 -180 0 0 21.26 100.7 L21.26 134.71 A11.3386 11.3386 -180 0 0 32.6 146.05 L42.52 146.05 L42.52 231.09
+							 L11.34 231.09 A11.3386 11.3386 -180 0 0 0 242.43 L0 276.45 A11.3386 11.3386 -180 0 0 11.34 287.78 L130.39
+							 287.78 A11.3386 11.3386 -180 0 0 141.73 276.45 L141.73 242.43 A11.3386 11.3386 -180 0 0 130.39 231.09
+							 L99.21 231.09 Z" />
+                </Button>
+            </ToolBar>
+            <ListBox
+                x:Name="filesListBox"
+                AllowDrop="True"
+                DragEnter="OnFilesListBoxValidateDropData"
+                DragOver="OnFilesListBoxValidateDropData"
+                DragLeave="OnFilesListBoxValidateDropData"
+                Drop="OnFilesListBoxDropData"
+                Margin="10"
+                DockPanel.Dock="Top"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                ScrollViewer.CanContentScroll="False"
+                SelectionMode="Extended"
+                ItemsSource="{Binding}">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Margin" Value="2"/>
+                        <Setter Property="SnapsToDevicePixels" Value="True"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <Border 
+                                        BorderBrush="LightGray" 
+                                        Name="ListBoxItemBorder" 
+                                        BorderThickness="1" 
+                                        CornerRadius="3" 
+                                        Padding="5,0">
+                                        <ContentPresenter ContentSource="Content"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="Selector.IsSelected" Value="True">
+                                            <Setter Property="Panel.Background" TargetName="ListBoxItemBorder">
+                                                <Setter.Value>
+                                                    <DynamicResource ResourceKey="{x:Static SystemColors.HighlightBrushKey}"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="TextElement.Foreground">
+                                                <Setter.Value>
+                                                    <DynamicResource ResourceKey="{x:Static SystemColors.HighlightTextBrushKey}"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                        <MultiTrigger>
+                                            <MultiTrigger.Conditions>
+                                                <Condition Property="Selector.IsSelected" Value="True"/>
+                                                <Condition Property="Selector.IsSelectionActive" Value="False"/>
+                                            </MultiTrigger.Conditions>
+                                            <Setter Property="Panel.Background" TargetName="ListBoxItemBorder">
+                                                <Setter.Value>
+                                                    <DynamicResource ResourceKey="{x:Static SystemColors.ControlBrushKey}" />
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="TextElement.Foreground">
+                                                <Setter.Value>
+                                                    <DynamicResource ResourceKey="{x:Static SystemColors.ControlTextBrushKey}"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </MultiTrigger>
+                                        <MultiTrigger>
+                                            <MultiTrigger.Conditions>
+                                                <Condition Property="UIElement.IsMouseOver" Value="True"/>
+                                                <Condition Property="Selector.IsSelected" Value="False"/>
+                                            </MultiTrigger.Conditions>
+                                            <Setter Property="Panel.Background" TargetName="ListBoxItemBorder" Value="WhiteSmoke"/>
+                                            <Setter Property="TextElement.Foreground">
+                                                <Setter.Value>
+                                                    <DynamicResource ResourceKey="{x:Static SystemColors.ControlTextBrushKey}"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </MultiTrigger>
+                                        <MultiTrigger>
+                                            <MultiTrigger.Conditions>
+                                                <Condition Property="UIElement.IsMouseOver" Value="True"/>
+                                                <Condition Property="Selector.IsSelected" Value="True"/>
+                                            </MultiTrigger.Conditions>
+                                            <Setter Property="Panel.Background" TargetName="ListBoxItemBorder" >
+                                                <Setter.Value>
+                                                    <DynamicResource ResourceKey="{x:Static SystemColors.HotTrackBrushKey}"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="TextElement.Foreground">
+                                                <Setter.Value>
+                                                    <DynamicResource ResourceKey="{x:Static SystemColors.HighlightTextBrushKey}"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </MultiTrigger>
+                                        <Trigger Property="UIElement.IsEnabled" Value="False">
+                                            <Setter Property="TextElement.Foreground">
+                                                <Setter.Value>
+                                                    <DynamicResource ResourceKey="{x:Static SystemColors.GrayTextBrushKey}"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid 
+                            Margin="0,2"
+                            ToolTipService.ToolTip="{Binding Path=Tooltip}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Margin="0,1,10,1" Grid.Column="0" Grid.Row="0" Text="Name:"/>
+                            <TextBlock Margin="0,1"     Grid.Column="1" Grid.Row="0" Text="{Binding Name}" Grid.ColumnSpan="2"/>
+                            <TextBlock Margin="0,1,10,1" Grid.Column="0" Grid.Row="1" Text="Path:"/>
+                            <TextBlock Margin="0,1"     Grid.Column="1" Grid.Row="1" Text="{Binding Path}"/>
+                            <TextBlock Margin="0,1,10,1" Grid.Column="0" Grid.Row="2" Text="Date:"/>
+                            <TextBlock Margin="0,1"     Grid.Column="1" Grid.Row="2" Text="{Binding Date, Converter={StaticResource DisplayDateConverter}}"/>
+                            <TextBlock Margin="0,1,10,1" Grid.Column="0" Grid.Row="3" Text="Size:"/>
+                            <TextBlock Margin="0,1"     Grid.Column="1" Grid.Row="3" Text="{Binding Size, Converter={StaticResource DisplaySizeConverter}}"/>
+                            <TextBlock Margin="0,1,10,1" Grid.Column="0" Grid.Row="4" Text="Checksums:"/>
+                            <ItemsControl Margin="0,1"  Grid.Column="1" Grid.Row="4" ItemsSource="{Binding Checksums}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.Resources>
+                                                <Style TargetType="TextBox">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="TextBox">
+                                                                <Border 
+                                                                    Name="TextBoxBorder" 
+                                                                    BorderThickness="{TemplateBinding BorderThickness}" 
+                                                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                                                    Background="{TemplateBinding Background}" 
+                                                                    SnapsToDevicePixels="true">
+                                                                    <ScrollViewer 
+                                                                        Name="PART_ContentHost" 
+                                                                        Background="{TemplateBinding Background}" 
+                                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                                                </Border>
+                                                                <ControlTemplate.Triggers>
+                                                                    <Trigger Property="IsEnabled" Value="False">
+                                                                        <Setter 
+                                                                            Property="Background" 
+                                                                            Value="Transparent"/>
+                                                                        <Setter 
+                                                                            Property="Background" 
+                                                                            Value="Transparent" 
+                                                                            TargetName="PART_ContentHost"/>
+                                                                        <Setter 
+                                                                            Property="BorderBrush" 
+                                                                            Value="Transparent" 
+                                                                            TargetName="TextBoxBorder"/>
+                                                                        <Setter 
+                                                                            Property="Foreground" 
+                                                                            Value="{Binding Path=Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem}}}" />
+                                                                    </Trigger>
+                                                                </ControlTemplate.Triggers>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Grid.Resources>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50" />
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="25"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock 
+                                                Margin="0,1,5,1" 
+                                                x:Name="ItemLabel"
+                                                Grid.Column="0" 
+                                                Text="{Binding Method, Converter={StaticResource UpperCaseConverter}}"/>
+                                            <TextBlock 
+                                                Margin="0,1,5,1" 
+                                                x:Name="ItemStatus"
+                                                Grid.Column="1" 
+                                                Text="{Binding Status}"/>
+                                            <TextBox 
+                                                Margin="3,1"
+                                                x:Name="ItemEdit"
+                                                Grid.Column="2" 
+                                                Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=EditToggleButton}">
+                                            </TextBox>
+                                            <ToggleButton 
+                                                Margin="2,1" 
+                                                x:Name="EditToggleButton"
+                                                Grid.Column="3">
+                                                <ToggleButton.Style>
+                                                    <Style TargetType="{x:Type ToggleButton}">
+                                                        <Setter Property="Background" Value="Transparent"/>
+                                                        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem}}}" />
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                                    <Border 
+                                                                        x:Name="ButtonBorder"
+                                                                        ToolTip="Enable edit mode."
+                                                                        Background="{TemplateBinding Background}" 
+                                                                        Padding="{TemplateBinding Padding}" 
+                                                                        BorderThickness="0"
+                                                                        BorderBrush="Transparent">
+                                                                        <Path 
+                                                                            x:Name="ButtonImage"
+                                                                            Stretch="Uniform"
+                                                                            HorizontalAlignment="Center"
+                                                                            VerticalAlignment="Center"
+                                                                            Fill="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}"
+                                                                            Data="M283.46 143.17 A141.732 141.732 -180 1 0 0 143.17 A141.732 141.732 -180 1 0 283.46 143.17 Z M209.48 115.51 L169.39
+						                                                          75.42 L186.23 58.59 A7.93701 7.55906 135 0 1 197.19 58.32 L226.59 87.72 A7.93701 7.55906 135 0 1 226.32
+						                                                          98.67 L209.48 115.51 Z M84.16 160.66 L155.36 89.45 L195.45 129.54 L124.22 200.77 L76.66 214.57 A5.41841
+						                                                          5.16039 135 0 1 70.34 208.25 L84.16 160.66 Z">
+                                                                        </Path>
+                                                                    </Border>
+                                                                    <ControlTemplate.Triggers>
+                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                            <Setter TargetName="ButtonImage" Property="Fill" Value="#80B3FF" />
+                                                                        </Trigger>
+                                                                        <Trigger Property="IsPressed" Value="True">
+                                                                            <Setter TargetName="ButtonImage" Property="Fill" Value="#F6B94D" />
+                                                                        </Trigger>
+                                                                        <Trigger Property="IsChecked" Value="True">
+                                                                            <Setter TargetName="ButtonBorder" Property="ToolTip" Value="Disable edit mode." />
+                                                                            <Setter TargetName="ButtonImage" Property="Fill" Value="#FF1919" />
+                                                                            <Setter TargetName="ButtonImage" Property="Data" 
+                                                                                    Value="M283.46 143.17 A141.732 141.732 -180 1 0 0 143.17 A141.732 141.732 -180 1 0 283.46 143.17 Z M141.73 103.08 L185.83
+						                                                                   58.99 A8.50394 8.50394 0 0 1 197.86 58.99 L225.92 87.05 A8.50394 8.50394 0 0 1 225.92 99.08 L181.82 143.17
+						                                                                   L225.92 187.27 A8.50394 8.50394 0 0 1 225.92 199.3 L197.86 227.36 A8.50394 8.50394 0 0 1 185.83 227.36 L141.73
+						                                                                   183.26 L97.64 227.36 A8.50394 8.50394 0 0 1 85.61 227.36 L57.55 199.3 A8.50394 8.50394 0 0 1 57.55 187.27
+						                                                                   L101.64 143.17 L57.55 99.08 A8.50394 8.50394 0 0 1 57.55 87.05 L85.61 58.99 A8.50394 8.50394 0 0 1 97.64
+						                                                                   58.99 L141.73 103.08 Z" />
+                                                                        </Trigger>
+                                                                    </ControlTemplate.Triggers>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </ToggleButton.Style>
+                                            </ToggleButton>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+    </Grid>
+</Window>

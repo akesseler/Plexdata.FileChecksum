@@ -39,6 +39,8 @@ namespace Plexdata.FileChecksum.Tests.Factories
         [TestCase(Method.Md5, typeof(Md5ChecksumCalculator))]
         [TestCase(Method.Sha1, typeof(Sha1ChecksumCalculator))]
         [TestCase(Method.Sha256, typeof(Sha256ChecksumCalculator))]
+        [TestCase(Method.Sha384, typeof(Sha384ChecksumCalculator))]
+        [TestCase(Method.Sha512, typeof(Sha512ChecksumCalculator))]
         public void Create_ValidMethod_ResultAsExpected(Method method, Type expected)
         {
             IChecksumCalculator actual = ChecksumCalculatorFactory.Create(method);
@@ -56,6 +58,12 @@ namespace Plexdata.FileChecksum.Tests.Factories
         [TestCase(Method.Sha256, null, typeof(Sha256ChecksumCalculator))]
         [TestCase(Method.Sha256, "", typeof(Sha256ChecksumCalculator))]
         [TestCase(Method.Sha256, "  ", typeof(Sha256ChecksumCalculator))]
+        [TestCase(Method.Sha384, null, typeof(Sha384ChecksumCalculator))]
+        [TestCase(Method.Sha384, "", typeof(Sha384ChecksumCalculator))]
+        [TestCase(Method.Sha384, "  ", typeof(Sha384ChecksumCalculator))]
+        [TestCase(Method.Sha512, null, typeof(Sha512ChecksumCalculator))]
+        [TestCase(Method.Sha512, "", typeof(Sha512ChecksumCalculator))]
+        [TestCase(Method.Sha512, "  ", typeof(Sha512ChecksumCalculator))]
         public void Create_ValidMethodInvalidAlgorithm_ResultAsExpected(Method method, String algorithm, Type expected)
         {
             IChecksumCalculator actual = ChecksumCalculatorFactory.Create(method, algorithm);

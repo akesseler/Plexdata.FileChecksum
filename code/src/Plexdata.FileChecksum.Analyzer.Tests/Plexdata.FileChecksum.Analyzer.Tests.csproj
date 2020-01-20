@@ -55,6 +55,8 @@
     <Compile Include="Internals\Algorithms\Md5ChecksumCalculatorTests.cs" />
     <Compile Include="Internals\Algorithms\Sha1ChecksumCalculatorTests.cs" />
     <Compile Include="Internals\Algorithms\Sha256ChecksumCalculatorTests.cs" />
+    <Compile Include="Internals\Algorithms\Sha384ChecksumCalculatorTests.cs" />
+    <Compile Include="Internals\Algorithms\Sha512ChecksumCalculatorTests.cs" />
     <Compile Include="Internals\Extensions\MethodExtensionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

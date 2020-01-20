@@ -54,6 +54,8 @@ namespace Plexdata.FileChecksum.Factories
         /// <seealso cref="System.Security.Cryptography.MD5.Create()"/>
         /// <seealso cref="System.Security.Cryptography.SHA1.Create()"/>
         /// <seealso cref="System.Security.Cryptography.SHA256.Create()"/>
+        /// <seealso cref="System.Security.Cryptography.SHA384.Create()"/>
+        /// <seealso cref="System.Security.Cryptography.SHA512.Create()"/>
         /// <exception cref="NotSupportedException">
         /// </exception>
         public static IChecksumCalculator Create(Method method)
@@ -76,6 +78,8 @@ namespace Plexdata.FileChecksum.Factories
         /// <seealso cref="System.Security.Cryptography.MD5.Create(String)"/>
         /// <seealso cref="System.Security.Cryptography.SHA1.Create(String)"/>
         /// <seealso cref="System.Security.Cryptography.SHA256.Create(String)"/>
+        /// <seealso cref="System.Security.Cryptography.SHA384.Create(String)"/>
+        /// <seealso cref="System.Security.Cryptography.SHA512.Create(String)"/>
         /// <exception cref="NotSupportedException">
         /// </exception>
         public static IChecksumCalculator Create(Method method, String algorithm)
@@ -88,6 +92,10 @@ namespace Plexdata.FileChecksum.Factories
                     return new Sha1ChecksumCalculator(algorithm);
                 case Method.Sha256:
                     return new Sha256ChecksumCalculator(algorithm);
+                case Method.Sha384:
+                    return new Sha384ChecksumCalculator(algorithm);
+                case Method.Sha512:
+                    return new Sha512ChecksumCalculator(algorithm);
                 default:
                     throw ChecksumCalculatorFactory.GetNotSupportedException(method, algorithm);
             }

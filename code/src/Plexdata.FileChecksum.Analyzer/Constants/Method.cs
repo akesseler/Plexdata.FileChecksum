@@ -55,5 +55,21 @@ namespace Plexdata.FileChecksum.Constants
         /// The `SHA256` checksum method should be used.
         /// </remarks>
         Sha256,
+
+        /// <summary>
+        /// Use `SHA384` method.
+        /// </summary>
+        /// <remarks>
+        /// The `SHA384` checksum method should be used.
+        /// </remarks>
+        Sha384,
+
+        /// <summary>
+        /// Use `SHA512` method.
+        /// </summary>
+        /// <remarks>
+        /// The `SHA512` checksum method should be used.
+        /// </remarks>
+        Sha512,
     }
 }
