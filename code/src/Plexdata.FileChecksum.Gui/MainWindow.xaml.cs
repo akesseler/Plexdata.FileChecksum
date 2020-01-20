@@ -279,7 +279,6 @@ namespace Plexdata.FileChecksum.Gui
             }
 
             return false;
-
         }
 
         private Boolean LoadFolder()
