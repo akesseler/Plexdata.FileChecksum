@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>fcc</AssemblyName>
     <Description>This console program allows either to verify the checksum of a single file or to create checksums of multiple files.</Description>
     <Copyright>Copyright © 2020 - plexdata.de</Copyright>
@@ -19,7 +19,7 @@
     <PackageIcon>icon.png</PackageIcon>
     <NeutralLanguage>en</NeutralLanguage>
     <StartupObject>Plexdata.FileChecksum.Cli.Program</StartupObject>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

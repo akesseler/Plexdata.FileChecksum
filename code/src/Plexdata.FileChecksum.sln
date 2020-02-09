@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29613.14
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plexdata.FileChecksum.Analyzer", "Plexdata.FileChecksum.Analyzer\Plexdata.FileChecksum.Analyzer.csproj", "{E0838D0E-3710-489A-8501-0F939AC62735}"
 EndProject
@@ -19,7 +19,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "General", "General", "{968C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plexdata.FileChecksum.Gui", "Plexdata.FileChecksum.Gui\Plexdata.FileChecksum.Gui.csproj", "{A2275590-2412-42FB-A43A-C0EA745C87AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plexdata.Dialogs.Wpf", "Plexdata.Dialogs.Wpf\Plexdata.Dialogs.Wpf.csproj", "{F0236AF6-97D5-4EFE-B106-8C4E696DF1B7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Externals", "Externals", "{784F33E5-697D-4D70-B3EC-9A28A5A23DFC}"
+	ProjectSection(SolutionItems) = preProject
+		Externals\Plexdata.Dialogs.Wpf.dll = Externals\Plexdata.Dialogs.Wpf.dll
+		Externals\Plexdata.Dialogs.Wpf.pdb = Externals\Plexdata.Dialogs.Wpf.pdb
+		Externals\Plexdata.Dialogs.Wpf.xml = Externals\Plexdata.Dialogs.Wpf.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +48,6 @@ Global
 		{A2275590-2412-42FB-A43A-C0EA745C87AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2275590-2412-42FB-A43A-C0EA745C87AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2275590-2412-42FB-A43A-C0EA745C87AC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F0236AF6-97D5-4EFE-B106-8C4E696DF1B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0236AF6-97D5-4EFE-B106-8C4E696DF1B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0236AF6-97D5-4EFE-B106-8C4E696DF1B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0236AF6-97D5-4EFE-B106-8C4E696DF1B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

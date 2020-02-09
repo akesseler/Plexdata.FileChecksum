@@ -79,6 +79,9 @@
     <Reference Include="Plexdata.CapacityConverter, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Plexdata.CapacityConverter.1.0.1\lib\netstandard2.0\Plexdata.CapacityConverter.dll</HintPath>
     </Reference>
+    <Reference Include="Plexdata.Dialogs.Wpf">
+      <HintPath>..\Externals\Plexdata.Dialogs.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -197,10 +200,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Plexdata.Dialogs.Wpf\Plexdata.Dialogs.Wpf.csproj">
-      <Project>{f0236af6-97d5-4efe-b106-8c4e696df1b7}</Project>
-      <Name>Plexdata.Dialogs.Wpf</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Plexdata.FileChecksum.Analyzer\Plexdata.FileChecksum.Analyzer.csproj">
       <Project>{e0838d0e-3710-489a-8501-0f939ac62735}</Project>
       <Name>Plexdata.FileChecksum.Analyzer</Name>
