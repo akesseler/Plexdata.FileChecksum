@@ -1,0 +1,1523 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Plexdata.Dialogs.Wpf</name>
+    </assembly>
+    <members>
+        <member name="T:Plexdata.Dialogs.DialogBox">
+            <summary>
+            The static class to allow a simple access to the dialog box.
+            </summary>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.String)">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/>.
+            The dialog box is centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.Windows.Window,System.String)">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/>.
+            The dialog box is centered within the <paramref name="owner"/>'s bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.String,Plexdata.Dialogs.DialogSymbol)">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/> and <paramref name="symbol"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/> and <paramref name="symbol"/>.
+            The dialog box is centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="symbol">
+            The dialog box symbol to be shown.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.Windows.Window,System.String,Plexdata.Dialogs.DialogSymbol)">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/> and <paramref name="symbol"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/> and <paramref name="symbol"/>.
+            The dialog box is centered within the <paramref name="owner"/>'s bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="symbol">
+            The dialog box symbol to be shown.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.String,System.String)">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/> and <paramref name="caption"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/> and <paramref name="caption"/>.
+            The dialog box is centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.Windows.Window,System.String,System.String)">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/> and <paramref name="caption"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/> and <paramref name="caption"/>.
+            The dialog box is centered within the <paramref name="owner"/>'s bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.String,System.String,Plexdata.Dialogs.DialogSymbol)">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/>, <paramref name="symbol"/> 
+            and <paramref name="caption"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/>, <paramref name="symbol"/> 
+            and <paramref name="caption"/>. The dialog box is centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <param name="symbol">
+            The dialog box symbol to be shown.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.Windows.Window,System.String,System.String,Plexdata.Dialogs.DialogSymbol)">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/>, <paramref name="symbol"/> 
+            and <paramref name="caption"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/>, <paramref name="symbol"/> 
+            and <paramref name="caption"/>. The dialog box is centered within the <paramref name="owner"/>'s bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <param name="symbol">
+            The dialog box symbol to be shown.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.String,Plexdata.Dialogs.DialogButton)">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/> and <paramref name="buttons"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/> and <paramref name="buttons"/>. 
+            The dialog box is centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.Windows.Window,System.String,Plexdata.Dialogs.DialogButton)">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/> and <paramref name="buttons"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/> and <paramref name="buttons"/>. 
+            The dialog box is centered within the <paramref name="owner"/>'s bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.String,Plexdata.Dialogs.DialogButton,Plexdata.Dialogs.DialogOption[])">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/> and <paramref name="buttons"/>,
+            as well as applying provided <paramref name="options"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/> and <paramref name="buttons"/>,
+            as well as applying provided <paramref name="options"/>. The dialog box is centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <param name="options">
+            The list of additional dialog box options.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.Windows.Window,System.String,Plexdata.Dialogs.DialogButton,Plexdata.Dialogs.DialogOption[])">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/> and <paramref name="buttons"/>,
+            as well as applying provided <paramref name="options"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/> and <paramref name="buttons"/>,
+            as well as applying provided <paramref name="options"/>. The dialog box is centered within the 
+            <paramref name="owner"/>'s bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <param name="options">
+            The list of additional dialog box options.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.String,System.String,Plexdata.Dialogs.DialogButton)">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/> 
+            and <paramref name="buttons"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/> 
+            and <paramref name="buttons"/>. The dialog box is centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.Windows.Window,System.String,System.String,Plexdata.Dialogs.DialogButton)">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/> 
+            and <paramref name="buttons"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/> 
+            and <paramref name="buttons"/>. The dialog box is centered within the <paramref name="owner"/>'s bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.String,System.String,Plexdata.Dialogs.DialogButton,Plexdata.Dialogs.DialogOption[])">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/> 
+            and <paramref name="buttons"/>, as well as applying provided <paramref name="options"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/> 
+            and <paramref name="buttons"/>, as well as applying provided <paramref name="options"/>. The dialog box 
+            is centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <param name="options">
+            The list of additional dialog box options.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.Windows.Window,System.String,System.String,Plexdata.Dialogs.DialogButton,Plexdata.Dialogs.DialogOption[])">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/> 
+            and <paramref name="buttons"/>, as well as applying provided <paramref name="options"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/> 
+            and <paramref name="buttons"/>, as well as applying provided <paramref name="options"/>. The dialog box 
+            is centered within the <paramref name="owner"/>'s bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <param name="options">
+            The list of additional dialog box options.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.String,System.String,Plexdata.Dialogs.DialogSymbol,Plexdata.Dialogs.DialogButton)">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/>, 
+            <paramref name="symbol"/> and <paramref name="buttons"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/>, 
+            <paramref name="symbol"/> and <paramref name="buttons"/>. The dialog box is centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <param name="symbol">
+            The dialog box symbol to be shown.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.Windows.Window,System.String,System.String,Plexdata.Dialogs.DialogSymbol,Plexdata.Dialogs.DialogButton)">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/>, 
+            <paramref name="symbol"/> and <paramref name="buttons"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/>, 
+            <paramref name="symbol"/> and <paramref name="buttons"/>. The dialog box is centered within the 
+            <paramref name="owner"/>'s bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <param name="symbol">
+            The dialog box symbol to be shown.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.String,Plexdata.Dialogs.DialogSymbol,Plexdata.Dialogs.DialogButton,Plexdata.Dialogs.DialogOption[])">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/>, <paramref name="symbol"/> 
+            and <paramref name="buttons"/>, as well as applying provided <paramref name="options"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/>, <paramref name="symbol"/> 
+            and <paramref name="buttons"/>, as well as applying provided <paramref name="options"/>. The dialog box 
+            is centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="symbol">
+            The dialog box symbol to be shown.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <param name="options">
+            The list of additional dialog box options.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.Windows.Window,System.String,Plexdata.Dialogs.DialogSymbol,Plexdata.Dialogs.DialogButton,Plexdata.Dialogs.DialogOption[])">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/>, <paramref name="symbol"/> 
+            and <paramref name="buttons"/>, as well as applying provided <paramref name="options"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/>, <paramref name="symbol"/> 
+            and <paramref name="buttons"/>, as well as applying provided <paramref name="options"/>. The dialog box 
+            is centered within the <paramref name="owner"/>'s bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="symbol">
+            The dialog box symbol to be shown.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <param name="options">
+            The list of additional dialog box options.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.String,System.String,Plexdata.Dialogs.DialogSymbol,Plexdata.Dialogs.DialogButton,Plexdata.Dialogs.DialogOption[])">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/>, 
+            <paramref name="symbol"/>, and <paramref name="buttons"/>, as well as applying provided 
+            <paramref name="options"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/>, 
+            <paramref name="symbol"/>, and <paramref name="buttons"/>, as well as applying provided 
+            <paramref name="options"/>. The dialog box is centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <param name="symbol">
+            The dialog box symbol to be shown.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <param name="options">
+            The list of additional dialog box options.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogBox.Show(System.Windows.Window,System.String,System.String,Plexdata.Dialogs.DialogSymbol,Plexdata.Dialogs.DialogButton,Plexdata.Dialogs.DialogOption[])">
+            <summary>
+            Shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/>, 
+            <paramref name="symbol"/>, and <paramref name="buttons"/>, as well as applying provided 
+            <paramref name="options"/>.
+            </summary>
+            <remarks>
+            This method shows the dialog box using provided <paramref name="message"/>, <paramref name="caption"/>, 
+            <paramref name="symbol"/>, and <paramref name="buttons"/>, as well as applying provided 
+            <paramref name="options"/>. The dialog box is centered within the <paramref name="owner"/>'s bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <param name="symbol">
+            The dialog box symbol to be shown.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <param name="options">
+            The list of additional dialog box options.
+            </param>
+            <returns>
+            The dialog result according to the pressed button.
+            </returns>
+        </member>
+        <member name="T:Plexdata.Dialogs.DialogButton">
+            <summary>
+            The set of flags of all possible dialog box buttons.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogButton.Ok">
+            <summary>
+            The dialog box shows an `Ok` button. 
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogButton.Yes">
+            <summary>
+            The dialog box shows a `Yes` button. 
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogButton.No">
+            <summary>
+            The dialog box shows a `No` button. 
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogButton.Close">
+            <summary>
+            The dialog box shows a `Close` button. 
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogButton.Cancel">
+            <summary>
+            The dialog box shows a `Cancel` button. 
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogButton.OkClose">
+            <summary>
+            The dialog box shows `Ok` and `Close` buttons.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogButton.OkCancel">
+            <summary>
+            The dialog box shows `Ok` and `Cancel` buttons.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogButton.YesNo">
+            <summary>
+            The dialog box shows `Yes` and `No` buttons.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogButton.YesNoCancel">
+            <summary>
+            The dialog box shows `Yes`, `No` and `Cancel` buttons.
+            </summary>
+        </member>
+        <member name="T:Plexdata.Dialogs.DialogOption">
+            <summary>
+            The model for customizing the dialog box.
+            </summary>
+            <remarks>
+            With this model it becomes possible to change for example a particular button label. 
+            Additionally, it becomes possible to change the button's default behaviour.
+            </remarks>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogOption.DefaultButtonOk">
+            <summary>
+            This field represents the configuration of button `OK` as default button.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogOption.DefaultButtonYes">
+            <summary>
+            This field represents the configuration of button `Yes` as default button.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogOption.DefaultButtonNo">
+            <summary>
+            This field represents the configuration of button `No` as default button.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogOption.DefaultButtonClose">
+            <summary>
+            This field represents the configuration of button `Close` as default button.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogOption.DefaultButtonCancel">
+            <summary>
+            This field represents the configuration of button `Cancel` as default button.
+            </summary>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogOption.#ctor">
+            <summary>
+            The default constructor.
+            </summary>
+            <remarks>
+            This constructor uses button `OK` as assigned button.
+            </remarks>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogOption.#ctor(Plexdata.Dialogs.DialogButton)">
+            <summary>
+            The constructor to apply provided <paramref name="button"/>.
+            </summary>
+            <remarks>
+            The provided button's default behaviour is disabled.
+            </remarks>
+            <param name="button">
+            The button to be used.
+            </param>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogOption.#ctor(Plexdata.Dialogs.DialogButton,System.Boolean)">
+            <summary>
+            The constructor to apply provided <paramref name="button"/>.
+            </summary>
+            <remarks>
+            The provided button's default behaviour is applied according value of 
+            <paramref name="isDefault"/>.
+            </remarks>
+            <param name="button">
+            The button to be used.
+            </param>
+            <param name="isDefault">
+            True to enable default behaviour and false to disable it.
+            </param>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogOption.#ctor(Plexdata.Dialogs.DialogButton,System.String)">
+            <summary>
+            The constructor to apply provided <paramref name="button"/>.
+            </summary>
+            <remarks>
+            The button's default label is replaced by provided <paramref name="label"/>.
+            </remarks>
+            <param name="button">
+            The button to be used.
+            </param>
+            <param name="label">
+            The label to be used.
+            </param>
+        </member>
+        <member name="M:Plexdata.Dialogs.DialogOption.#ctor(Plexdata.Dialogs.DialogButton,System.String,System.Boolean)">
+            <summary>
+            The constructor to apply provided <paramref name="button"/>.
+            </summary>
+            <remarks>
+            The provided button's default behaviour is applied according value of 
+            <paramref name="isDefault"/> as well as its default label is replaced by 
+            provided <paramref name="label"/>.
+            </remarks>
+            <param name="button">
+            The button to be used.
+            </param>
+            <param name="label">
+            The label to be used.
+            </param>
+            <param name="isDefault">
+            True to enable default behaviour and false to disable it.
+            </param>
+        </member>
+        <member name="P:Plexdata.Dialogs.DialogOption.Button">
+            <summary>
+            Gets and sets the corresponding button flag.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            This exception is thrown if provided value consists of more that one single 
+            button flag.
+            </exception>
+        </member>
+        <member name="P:Plexdata.Dialogs.DialogOption.Label">
+            <summary>
+            Gets and sets the corresponding button label.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            This exception is thrown if provided value is invalid.
+            </exception>
+        </member>
+        <member name="P:Plexdata.Dialogs.DialogOption.IsDefault">
+            <summary>
+            Gets and sets the button's default behaviour.
+            </summary>
+        </member>
+        <member name="T:Plexdata.Dialogs.DialogResult">
+            <summary>
+            The enumeration of all possible dialog box results.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogResult.None">
+            <summary>
+            The message box returns no result.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogResult.OK">
+            <summary>
+            The result value of the message box is OK.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogResult.Close">
+            <summary>
+            The result value of the message box is Close.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogResult.Cancel">
+            <summary>
+            The result value of the message box is Cancel.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogResult.Yes">
+            <summary>
+            The result value of the message box is Yes.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogResult.No">
+            <summary>
+            The result value of the message box is No.
+            </summary>
+        </member>
+        <member name="T:Plexdata.Dialogs.DialogSymbol">
+            <summary>
+            The enumeration of all possible dialog box symbols.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogSymbol.None">
+            <summary>
+            No symbol is shown.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogSymbol.Application">
+            <summary>
+            The `Application` symbol is shown.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogSymbol.Asterisk">
+            <summary>
+            The `Asterisk` symbol is shown.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogSymbol.Error">
+            <summary>
+            The `Error` symbol is shown.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogSymbol.Exclamation">
+            <summary>
+            The `Exclamation` symbol is shown.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogSymbol.Hand">
+            <summary>
+            The `Hand` symbol is shown.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogSymbol.Information">
+            <summary>
+            The `Information` symbol is shown.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogSymbol.Question">
+            <summary>
+            The `Question` symbol is shown.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogSymbol.Shield">
+            <summary>
+            The `Shield` symbol is shown.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogSymbol.Warning">
+            <summary>
+            The `Warning` symbol is shown.
+            </summary>
+        </member>
+        <member name="F:Plexdata.Dialogs.DialogSymbol.WinLogo">
+            <summary>
+            The `WinLogo` symbol is shown.
+            </summary>
+        </member>
+        <member name="T:Plexdata.Dialogs.Internal.FolderEntry">
+            <summary>
+            This helper class is intended to be used internally only.
+            </summary>
+        </member>
+        <member name="E:Plexdata.Dialogs.Internal.FolderEntry.PropertyChanged">
+            <summary>
+            Occurs when a property value changes.
+            </summary>
+        </member>
+        <member name="M:Plexdata.Dialogs.Internal.FolderEntry.#ctor(System.IO.DriveInfo)">
+            <summary>
+            The constructor using provided <paramref name="drive"/> to initialize all 
+            dependent data from.
+            </summary>
+            <param name="drive">
+            The drive to initialize all dependent data from.
+            </param>
+        </member>
+        <member name="M:Plexdata.Dialogs.Internal.FolderEntry.#ctor(System.IO.DirectoryInfo)">
+            <summary>
+            The constructor using provided <paramref name="folder"/> to initialize all 
+            dependent data from.
+            </summary>
+            <param name="folder">
+            The folder to initialize all dependent data from.
+            </param>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.FolderEntry.Label">
+            <summary>
+            Gets the display label.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.FolderEntry.Folder">
+            <summary>
+            Gets the assigned folder.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.FolderEntry.Image">
+            <summary>
+            Gets the assigned image.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.FolderEntry.Children">
+            <summary>
+            Gets or sets the list of assigned children.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.FolderEntry.IsSelected">
+            <summary>
+            Gets or sets current selected state.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.FolderEntry.IsExpanded">
+            <summary>
+            Gets or sets current expanded state.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="M:Plexdata.Dialogs.Internal.FolderEntry.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>
+            The string that represents the current object.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.Internal.FolderEntry.OnPropertyChanged(System.String)">
+            <summary>
+            This method fires the property changed event if possible.
+            </summary>
+            <param name="property">
+            The name of the property that has changed.
+            </param>
+        </member>
+        <member name="T:Plexdata.Dialogs.Internal.DialogBox">
+            <summary>
+            Interaction logic for DialogBox.xaml
+            </summary>
+            <remarks>
+            This class is intended to be used internally only.
+            </remarks>
+            <summary>
+            DialogBox
+            </summary>
+        </member>
+        <member name="M:Plexdata.Dialogs.Internal.DialogBox.#ctor(System.Windows.Window,System.String,System.String,Plexdata.Dialogs.DialogButton,Plexdata.Dialogs.DialogSymbol,Plexdata.Dialogs.DialogOption[])">
+            <summary>
+            This constructor initialize a new instance of this class.
+            </summary>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <param name="buttons">
+            The set of flags describing the used buttons.
+            </param>
+            <param name="symbol">
+            The dialog box symbol to be shown.
+            </param>
+            <param name="options">
+            The list of additional dialog box options.
+            </param>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.Message">
+            <summary>
+            Gets the message to be displayed.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.Buttons">
+            <summary>
+            Gets the buttons to be displayed.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.Symbol">
+            <summary>
+            Gets the symbol to be displayed.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.Result">
+            <summary>
+            Gets the result of the dialog box.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.SymbolVisibility">
+            <summary>
+            Gets the symbol's visibility state.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.OkButtonVisibility">
+            <summary>
+            Gets the visibility of button `OK`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.CloseButtonVisibility">
+            <summary>
+            Gets the visibility of button `Close`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.CancelButtonVisibility">
+            <summary>
+            Gets the visibility of button `Cancel`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.YesButtonVisibility">
+            <summary>
+            Gets the visibility of button `Yes`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.NoButtonVisibility">
+            <summary>
+            Gets the visibility of button `No`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.OkButtonLabel">
+            <summary>
+            Gets the label of button `OK`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.CloseButtonLabel">
+            <summary>
+            Gets the label of button `Close`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.CancelButtonLabel">
+            <summary>
+            Gets the label of button `Cancel`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.YesButtonLabel">
+            <summary>
+            Gets the label of button `Yes`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.NoButtonLabel">
+            <summary>
+            Gets the label of button `No`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.OkButtonDefault">
+            <summary>
+            Gets the default behaviour of button `OK`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.CloseButtonDefault">
+            <summary>
+            Gets the default behaviour of button `Close`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.CancelButtonDefault">
+            <summary>
+            Gets the default behaviour of button `Cancel`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.YesButtonDefault">
+            <summary>
+            Gets the default behaviour of button `Yes`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.NoButtonDefault">
+            <summary>
+            Gets the default behaviour of button `No`.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.OkButtonCancel">
+            <summary>
+            Gets the cancel behaviour of button `OK`. This 
+            property always returns false.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.CancelButtonCancel">
+            <summary>
+            Gets the cancel behaviour of button `Cancel`. This 
+            property returns true if `Cancel` button is visible.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.CloseButtonCancel">
+            <summary>
+            Gets the cancel behaviour of button `Close`. This 
+            property returns true if `Close` button is visible 
+            and the `Cancel` button is invisible.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.YesButtonCancel">
+            <summary>
+            Gets the cancel behaviour of button `Yes`. This 
+            property always returns false.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.NoButtonCancel">
+            <summary>
+            Gets the cancel behaviour of button `No`. This property returns 
+            true if the `No` button is visible, and the `Cancel` button as 
+            well as the `Close` button are both invisible.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.DialogBox.CopyClipboardLabel">
+            <summary>
+            Gets the label of copy clipboard link.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="M:Plexdata.Dialogs.Internal.DialogBox.OnSourceInitialized(System.EventArgs)">
+            <summary>
+            Raises the source initialized event.
+            </summary>
+            <param name="args">
+            The event arguments containing the event data.
+            </param>
+        </member>
+        <member name="M:Plexdata.Dialogs.Internal.DialogBox.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Plexdata.Dialogs.Internal.OpenFolderDialog">
+            <summary>
+            Interaction logic for OpenFolderDialog.xaml
+            </summary>
+            <remarks>
+            This class is intended to be used internally only.
+            </remarks>
+            <summary>
+            OpenFolderDialog
+            </summary>
+        </member>
+        <member name="M:Plexdata.Dialogs.Internal.OpenFolderDialog.#ctor(System.Windows.Window,System.String,System.String,System.IO.DirectoryInfo)">
+            <summary>
+            This constructor initialize a new instance of this class.
+            </summary>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <param name="folder">
+            The directory information to be used as initial folder.
+            </param>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.OpenFolderDialog.RootFolders">
+            <summary>
+            Gets the list of assigned root folders.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.OpenFolderDialog.IsMessageVisible">
+            <summary>
+            Gets the message's visibility state.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.OpenFolderDialog.Message">
+            <summary>
+            Gets and sets the message to be displayed.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.OpenFolderDialog.SelectedFolder">
+            <summary>
+            Gets the directory information of selected folder.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="P:Plexdata.Dialogs.Internal.OpenFolderDialog.InitialFolder">
+            <summary>
+            Gets and sets the directory information of initial folder.
+            </summary>
+            <remarks>
+            This property should not be used directly.
+            </remarks>
+        </member>
+        <member name="M:Plexdata.Dialogs.Internal.OpenFolderDialog.OnContentRendered(System.EventArgs)">
+            <summary>
+            Raises the content rendered event.
+            </summary>
+            <param name="args">
+            The event arguments containing the event data.
+            </param>
+        </member>
+        <member name="M:Plexdata.Dialogs.Internal.OpenFolderDialog.OnSourceInitialized(System.EventArgs)">
+            <summary>
+            Raises the source initialized event.
+            </summary>
+            <param name="args">
+            The event arguments containing the event data.
+            </param>
+        </member>
+        <member name="M:Plexdata.Dialogs.Internal.OpenFolderDialog.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Plexdata.Dialogs.Native.WindowButtonHelper">
+            <summary>
+            The static helper class to allow the modification of the window button 
+            `Minimize` and `Maximize`.
+            </summary>
+        </member>
+        <member name="M:Plexdata.Dialogs.Native.WindowButtonHelper.SetAdditionalButtons(System.Windows.Window,System.Boolean)">
+            <summary>
+            Enables or disables the `Minimize` and `Maximize` buttons for provided 
+            window.
+            </summary>
+            <param name="window">
+            The window to modify those buttons for.
+            </param>
+            <param name="disabled">
+            True to disable those buttons and false to enable them.
+            </param>
+            <returns>
+            True it the Win32 API call was successful and false otherwise.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.Native.WindowButtonHelper.SetMinimizeButton(System.Windows.Window,System.Boolean)">
+            <summary>
+            Enables or disables the `Minimize` button for provided window.
+            </summary>
+            <param name="window">
+            The window to modify this button for.
+            </param>
+            <param name="disabled">
+            True to disable this button and false to enable it.
+            </param>
+            <returns>
+            True it the Win32 API call was successful and false otherwise.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.Native.WindowButtonHelper.SetMaximizeButton(System.Windows.Window,System.Boolean)">
+            <summary>
+            Enables or disables the `Maximize` button for provided window.
+            </summary>
+            <param name="window">
+            The window to modify this button for.
+            </param>
+            <param name="disabled">
+            True to disable this button and false to enable it.
+            </param>
+            <returns>
+            True it the Win32 API call was successful and false otherwise.
+            </returns>
+        </member>
+        <member name="T:Plexdata.Dialogs.OpenFolderDialog">
+            <summary>
+            The static class to allow a simple access to the open folder dialog.
+            </summary>
+        </member>
+        <member name="M:Plexdata.Dialogs.OpenFolderDialog.Show">
+            <summary>
+            Just shows the open folder dialog with default settings.
+            </summary>
+            <remarks>
+            No additional message is shown, the initial folder is not set and 
+            the dialog caption is set to `Open Folder`. Furthermore, the dialog 
+            window is centered on screen.
+            </remarks>
+            <returns>
+            The information of selected directory or null in case of cancellation.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.OpenFolderDialog.Show(System.Windows.Window)">
+            <summary>
+            Just shows the open folder dialog with default settings.
+            </summary>
+            <remarks>
+            No additional message is shown, the initial folder is not set and 
+            the dialog caption is set to `Open Folder`. Furthermore, the dialog 
+            window is centered within the <paramref name="owner"/>'s bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <returns>
+            The information of selected directory or null in case of cancellation.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.OpenFolderDialog.Show(System.String)">
+            <summary>
+            Shows the open folder dialog using provided additional <paramref name="message"/>.
+            </summary>
+            <remarks>
+            The initial folder is not set and the dialog caption is set to `Open Folder`. 
+            Furthermore, the dialog window is centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <returns>
+            The information of selected directory or null in case of cancellation.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.OpenFolderDialog.Show(System.Windows.Window,System.String)">
+            <summary>
+            Shows the open folder dialog using provided additional <paramref name="message"/>.
+            </summary>
+            <remarks>
+            The initial folder is not set and the dialog caption is set to `Open Folder`. 
+            Furthermore, the dialog window is centered within the <paramref name="owner"/>'s 
+            bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <returns>
+            The information of selected directory or null in case of cancellation.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.OpenFolderDialog.Show(System.String,System.String)">
+            <summary>
+            Shows the open folder dialog using provided additional <paramref name="message"/> 
+            as well as provided <paramref name="caption"/>.
+            </summary>
+            <remarks>
+            The initial folder is not set. Furthermore, the dialog window is centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <returns>
+            The information of selected directory or null in case of cancellation.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.OpenFolderDialog.Show(System.Windows.Window,System.String,System.String)">
+            <summary>
+            Shows the open folder dialog using provided additional <paramref name="message"/> 
+            as well as provided <paramref name="caption"/>.
+            </summary>
+            <remarks>
+            The initial folder is not set. Furthermore, the dialog window is centered within 
+            the <paramref name="owner"/>'s 
+            bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <returns>
+            The information of selected directory or null in case of cancellation.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.OpenFolderDialog.Show(System.IO.DirectoryInfo)">
+            <summary>
+            Shows the open folder dialog and pre-selects provided <paramref name="folder"/>.
+            </summary>
+            <remarks>
+            No additional message is shown and the dialog caption is set to `Open Folder`. 
+            Furthermore, the dialog window is centered on screen.
+            </remarks>
+            <param name="folder">
+            The directory information to be used as initial folder.
+            </param>
+            <returns>
+            The information of selected directory or null in case of cancellation.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.OpenFolderDialog.Show(System.Windows.Window,System.IO.DirectoryInfo)">
+            <summary>
+            Shows the open folder dialog and pre-selects provided <paramref name="folder"/>.
+            </summary>
+            <remarks>
+            No additional message is shown and the dialog caption is set to `Open Folder`. 
+            Furthermore, the dialog window is centered within the <paramref name="owner"/>'s 
+            bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="folder">
+            The directory information to be used as initial folder.
+            </param>
+            <returns>
+            The information of selected directory or null in case of cancellation.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.OpenFolderDialog.Show(System.String,System.IO.DirectoryInfo)">
+            <summary>
+            Shows the open folder dialog using provided additional <paramref name="message"/> 
+            as well as pre-selects provided <paramref name="folder"/>.
+            </summary>
+            <remarks>
+            The dialog caption is set to `Open Folder`. Furthermore, the dialog window is 
+            centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="folder">
+            The directory information to be used as initial folder.
+            </param>
+            <returns>
+            The information of selected directory or null in case of cancellation.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.OpenFolderDialog.Show(System.Windows.Window,System.String,System.IO.DirectoryInfo)">
+            <summary>
+            Shows the open folder dialog using provided additional <paramref name="message"/> 
+            as well as pre-selects provided <paramref name="folder"/>.
+            </summary>
+            <remarks>
+            The dialog caption is set to `Open Folder`. Furthermore, the dialog window is 
+            centered within the <paramref name="owner"/>'s bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="folder">
+            The directory information to be used as initial folder.
+            </param>
+            <returns>
+            The information of selected directory or null in case of cancellation.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.OpenFolderDialog.Show(System.String,System.String,System.IO.DirectoryInfo)">
+            <summary>
+            Shows the open folder dialog using provided additional <paramref name="message"/> 
+            as well as provided <paramref name="caption"/> as well as pre-selects provided 
+            <paramref name="folder"/>.
+            </summary>
+            <remarks>
+            The dialog window is centered on screen.
+            </remarks>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <param name="folder">
+            The directory information to be used as initial folder.
+            </param>
+            <returns>
+            The information of selected directory or null in case of cancellation.
+            </returns>
+        </member>
+        <member name="M:Plexdata.Dialogs.OpenFolderDialog.Show(System.Windows.Window,System.String,System.String,System.IO.DirectoryInfo)">
+            <summary>
+            Shows the open folder dialog using provided additional <paramref name="message"/> 
+            as well as provided <paramref name="caption"/> as well as pre-selects provided 
+            <paramref name="folder"/>.
+            </summary>
+            <remarks>
+            The dialog window is centered within the <paramref name="owner"/>'s bounds.
+            </remarks>
+            <param name="owner">
+            The owner of the dialog box.
+            </param>
+            <param name="message">
+            The message to be displayed.
+            </param>
+            <param name="caption">
+            The dialog box caption to be used.
+            </param>
+            <param name="folder">
+            The directory information to be used as initial folder.
+            </param>
+            <returns>
+            The information of selected directory or null in case of cancellation.
+            </returns>
+        </member>
+    </members>
+</doc>

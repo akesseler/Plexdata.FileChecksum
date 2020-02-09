@@ -36,6 +36,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
 namespace Plexdata.FileChecksum.Gui
@@ -49,6 +50,8 @@ namespace Plexdata.FileChecksum.Gui
         {
             this.InitializeComponent();
             this.ApplyTitle();
+
+            this.filesListBox.ItemContainerGenerator.StatusChanged += this.OnFilesListBoxContainersGenerated;
 
             this.FileItems = new ObservableCollection<FileItem>();
             this.DataContext = this.FileItems;
@@ -118,7 +121,7 @@ namespace Plexdata.FileChecksum.Gui
 
             if (!this.FileItems.Any(x => x.CanVerify))
             {
-                DialogBox.Show(this, "At least one file with at least one checksum to verify is required.", this.Title, DialogSymbol.Exclamation);
+                DialogBox.Show(this, "At least one file with at least one checksum to verify is required.", DialogSymbol.Exclamation);
                 return;
             }
 
@@ -141,11 +144,13 @@ namespace Plexdata.FileChecksum.Gui
 
             if (values.Any())
             {
-                DialogResult result = DialogBox.Show(
-                    this, "Do you want to copy results to clipboard or do you want to write results into a file?",
-                    this.Title, DialogSymbol.Question, DialogButton.YesNoCancel,
+                String message = "Do you want to copy results to clipboard or do you want to write results into a file?";
+
+                DialogResult result = DialogBox.Show(this, message,
+                    DialogSymbol.Question, DialogButton.YesNoCancel,
                     new DialogOption(DialogButton.Yes, "Clipboard"),
-                    new DialogOption(DialogButton.No, "File"));
+                    new DialogOption(DialogButton.No, "File"),
+                    DialogOption.DefaultButtonCancel);
 
                 switch (result)
                 {
@@ -179,10 +184,11 @@ namespace Plexdata.FileChecksum.Gui
                 "Do you want to import checksums from clipboard or from a file?",
                 Environment.NewLine, SP, CR);
 
-            DialogResult result = DialogBox.Show(this, message, this.Title,
+            DialogResult result = DialogBox.Show(this, message,
                 DialogSymbol.Question, DialogButton.YesNoCancel,
                 new DialogOption(DialogButton.Yes, "Clipboard"),
-                new DialogOption(DialogButton.No, "File"));
+                new DialogOption(DialogButton.No, "File"),
+                DialogOption.DefaultButtonCancel);
 
             switch (result)
             {
@@ -238,6 +244,17 @@ namespace Plexdata.FileChecksum.Gui
             this.filesListBox.ScrollIntoView(this.filesListBox.Items.CurrentItem);
         }
 
+        private void OnFilesListBoxContainersGenerated(Object sender, EventArgs args)
+        {
+            switch (this.filesListBox.ItemContainerGenerator.Status)
+            {
+                case GeneratorStatus.Error:
+                case GeneratorStatus.ContainersGenerated:
+                    Mouse.OverrideCursor = null;
+                    break;
+            }
+        }
+
         #endregion
 
         #region Private methods
@@ -283,45 +300,37 @@ namespace Plexdata.FileChecksum.Gui
 
         private Boolean LoadFolder()
         {
-            OpenFolderDialog dialog = new OpenFolderDialog(this)
-            {
-                Message = "Choose a folder to load all files from.",
-                InitialPath = DriveInfo.GetDrives().FirstOrDefault()?.RootDirectory?.FullName
-            };
+            DirectoryInfo result = OpenFolderDialog.Show(this, "Choose a folder to load all files from.", DriveInfo.GetDrives().FirstOrDefault()?.RootDirectory);
 
-            if (dialog.ShowDialog() == true)
+            if (result is null)
             {
-                // TODO: Fix it. This bullshit does actually not work.
-                Cursor cursor = this.Cursor;
-                this.Cursor = Cursors.Wait;
+                return false;
+            }
 
-                try
+            // NOTE: Cursor is reset in event handler `OnFilesListBoxContainersGenerated`.
+            Mouse.OverrideCursor = Cursors.Wait;
+
+            try
+            {
+                IEnumerable<String> fullpaths = result.GetFiles().Where(x => x != null).Select(x => x.FullName);
+
+                if (fullpaths.Any())
                 {
-                    IEnumerable<String> fullpaths = dialog.SelectedFolder.GetFiles().Where(x => x != null).Select(x => x.FullName);
+                    this.FileItems.Clear();
 
-                    if (fullpaths.Any())
+                    foreach (String fullpath in fullpaths)
                     {
-                        this.FileItems.Clear();
-
-                        foreach (String fullpath in fullpaths)
-                        {
-
-                            this.FileItems.Add(new FileItem(fullpath));
-                        }
-
-                        return this.FileItems.Any();
+                        this.FileItems.Add(new FileItem(fullpath));
                     }
-                    else
-                    {
-                        DialogBox.Show(this, $"No files found in \"{dialog.SelectedFolder.FullName}\".", this.Title, DialogSymbol.Warning);
-                    }
+
+                    return this.FileItems.Any();
                 }
-                catch { }
-                finally
+                else
                 {
-                    this.Cursor = cursor;
+                    DialogBox.Show(this, $"No files found in \"{result.FullName}\".", DialogSymbol.Warning);
                 }
             }
+            catch { }
 
             return false;
         }
@@ -334,7 +343,7 @@ namespace Plexdata.FileChecksum.Gui
             }
             catch (Exception exception)
             {
-                DialogBox.Show(this, exception.ToString(), this.Title, DialogSymbol.Error);
+                DialogBox.Show(this, exception.ToString(), DialogSymbol.Error);
             }
         }
 
@@ -359,7 +368,7 @@ namespace Plexdata.FileChecksum.Gui
                 }
                 catch (Exception exception)
                 {
-                    DialogBox.Show(this, exception.ToString(), this.Title, DialogSymbol.Error);
+                    DialogBox.Show(this, exception.ToString(), DialogSymbol.Error);
                 }
             }
         }
@@ -372,7 +381,7 @@ namespace Plexdata.FileChecksum.Gui
 
                 if (String.IsNullOrWhiteSpace(value))
                 {
-                    DialogBox.Show(this, "The Clipboard seems to be empty.", this.Title, DialogSymbol.Exclamation);
+                    DialogBox.Show(this, "The Clipboard seems to be empty.", DialogSymbol.Exclamation);
                     return;
                 }
 
@@ -380,7 +389,7 @@ namespace Plexdata.FileChecksum.Gui
             }
             catch (Exception exception)
             {
-                DialogBox.Show(this, exception.ToString(), this.Title, DialogSymbol.Error);
+                DialogBox.Show(this, exception.ToString(), DialogSymbol.Error);
             }
         }
 
@@ -409,7 +418,7 @@ namespace Plexdata.FileChecksum.Gui
 
                     if (String.IsNullOrWhiteSpace(value))
                     {
-                        DialogBox.Show(this, "The File seems to be empty.", this.Title, DialogSymbol.Exclamation);
+                        DialogBox.Show(this, "The File seems to be empty.", DialogSymbol.Exclamation);
                         return;
                     }
 
@@ -417,7 +426,7 @@ namespace Plexdata.FileChecksum.Gui
                 }
                 catch (Exception exception)
                 {
-                    DialogBox.Show(this, exception.ToString(), this.Title, DialogSymbol.Error);
+                    DialogBox.Show(this, exception.ToString(), DialogSymbol.Error);
                 }
             }
         }
